@@ -1,0 +1,64 @@
+<head>
+   <style>
+      table, td, th {
+      border: 1px solid #ddd;
+      text-align: left;
+      }
+      table {
+      border-collapse: collapse;
+      width: 100%;
+      }
+      th, td {
+      padding: 15px;
+      }
+      .home-link{
+        display: block;
+         width: 100px;
+         height: 20px;
+         background: MediumSeaGreen;
+         padding: 10px;
+         text-align: center;
+         border-radius: 5px;
+         color: white;
+         font-weight: bold;
+      }
+   </style>
+</head>
+<a class="home-link" href="/">Home</a><br>
+<table>
+   <thead>
+      <tr>
+         <th>Name</th>
+         <th>Contact No</th>
+         <th>Email</th>
+         <th>Edit Action</th>
+         <th>Delete Action</th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for each in contacts %}
+      <tr>
+         <td>{{each.name}} </td>
+         <td>{{each.contact}} </td>
+         <td>{{each.email}} </td>
+         <td><a href="edit/{{each.id}}">EDIT &#9745;</a></td>
+         <td><a href="delete/{{each.id}}" onclick="return confirm('Are you sure?')">DELETE &#9785;</a></td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+<div class="pagination">
+   <span class="step-links">
+   {% if contacts.has_previous %}
+   <a href="?page=1">&laquo; first</a>
+   <a href="?page={{ contacts.previous_page_number }}">previous</a>
+   {% endif %}
+   <span class="current">
+   Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+   </span>
+   {% if contacts.has_next %}
+   <a href="?page={{ contacts.next_page_number }}">next</a>
+   <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+   {% endif %}
+   </span>
+</div>

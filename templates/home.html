@@ -1,0 +1,23 @@
+<!-- templates/home.html -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+   </head>
+   <body>
+      {% if user.is_authenticated %}
+      Hi {{ user.email }}!
+      <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+      <ul>
+         <li><a href="c_book/add">Add contact</a></li>
+         <li><a href="c_book/get_all_contacts">View Contatcs</a></li>
+         <li><a href="c_book/search">Search Contact</a></li>
+      </ul>
+      {% else %}
+      <p>You are not logged in</p>
+      <a href="{% url 'account_login' %}">Log In</a> |
+      <a href="{% url 'account_signup' %}">Sign Up</a>
+      {% endif %}
+   </body>
+</html>

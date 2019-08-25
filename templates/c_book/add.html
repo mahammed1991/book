@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title></title>
+      <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+      <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+      <style media="screen">
+         input[type=number]::-webkit-inner-spin-button,
+         input[type=number]::-webkit-outer-spin-button {
+         -webkit-appearance: none;
+         margin: 0;
+         }
+         .home-link{
+           display: block;
+            width: 100px;
+            height: 20px;
+            background: MediumSeaGreen;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white !important;
+            font-weight: bold;
+         }
+
+         .errorlist {
+         font-size: 14px;
+         font-weight: 700;
+         display: block;
+         padding: 10px 12px;
+         margin: 0 0 10px 0;
+         color: #ba2121;
+         border: 1px solid #ba2121;
+         border-radius: 4px;
+         background-color: #fff;
+         background-position: 5px 12px;
+         }
+         .container {
+         background: #fff;
+         border: 1px solid #eaeaea;
+         border-radius: 4px;
+         overflow: hidden;
+         width: 28em;
+         min-width: 300px;
+         margin: 100px auto;
+         display: contents;
+         }
+         ul.errorlist {
+         margin: 0 0 4px;
+         padding: 0;
+         color: #ba2121;
+         background: #fff;
+         position: absolute;
+         }
+         .input-validation ul.b{
+         list-style-type: square;
+         }
+         .success{
+         color:blue;
+         }
+      </style>
+   </head>
+   <body>
+      <a class="home-link" href="/">Home</a><br>
+      <div class="input-validation">
+         <ul>
+            <li>Contact Number should be Ten digit</li>
+            <li>Enter a valid email [ example@e.com]</li>
+         </ul>
+      </div>
+      <div class="container">
+         {%if success%}
+         <p class="success">{{message}}</p>
+         {%else%}
+         <ul>
+            <p class="success">{{message}}</p>
+         </ul>
+         {%endif%}
+         <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit">
+         </form>
+      </div>
+   </body>
+</html>

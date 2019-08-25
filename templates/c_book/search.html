@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Search page</title>
+      <style media="screen">
+         ul {
+         list-style-type: none;
+         margin: 0;
+         padding: 0;
+         background-color: transparent;
+         }
+         li{
+         display:block;
+         float: right;
+         }
+         li a {
+         display: block;
+         color: black;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+         }
+         #searchbar {
+         top: 260px;
+         left: 375px;
+         width: 580px;
+         height: 30px;
+         border: 1px solid #cdcdcd;
+         }
+         #search_button {
+         top: 310px;
+         left: 550px;
+         border: 1px solid #dcdcdc;
+         border-color: rgba(0, 0, 0, 0.1);
+         color: #444!important;
+         font-size: 11px;
+         font-weight: bold;
+         padding: 8px;
+         background: -webkit-linear-gradient(top, #f5f5f5, #f1f1f1);
+         border-radius: 2px;
+         }
+         table, td, th {
+         border: 1px solid #ddd;
+         text-align: left;
+         }
+         table {
+         border-collapse: collapse;
+         width: 100%;
+         }
+         th, td {
+         padding: 15px;
+         }
+         .home-link{
+           display: block;
+            width: 100px;
+            height: 20px;
+            background: MediumSeaGreen;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+         }
+
+      </style>
+   </head>
+   <body>
+      <a class="home-link" href="/">Home</a><br>
+      <div>
+        <form method="post">
+          {% csrf_token %}
+          <input type="text" name="search_key" id="searchbar" placeholder="Type Key to search">
+          <input type="submit" value=" Search" id="search_button">
+        </form>
+
+      </div>
+      <br>
+      {% if contacts%}
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Contact No</th>
+               <th>Email</th>
+            </tr>
+         </thead>
+         <tbody>
+
+            {% for each in contacts %}
+            <tr>
+               <td>{{each.name}} </td>
+               <td>{{each.contact}} </td>
+               <td>{{each.email}} </td>
+            </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      <div class="pagination">
+         <span class="step-links">
+         {% if contacts.has_previous %}
+         <a href="?page=1">&laquo; first</a>
+         <a href="?page={{ contacts.previous_page_number }}">previous</a>
+         {% endif %}
+         <span class="current">
+         Page {{ contacts.number }} of {{ contacts.paginator.num_pages }}.
+         </span>
+         {% if contacts.has_next %}
+         <a href="?page={{ contacts.next_page_number }}">next</a>
+         <a href="?page={{ contacts.paginator.num_pages }}">last &raquo;</a>
+         {% endif %}
+         </span>
+         {% else %}
+         <p>NO RESULT &#9785;</p>
+         {% endif%}
+      </div>
+   </body>
+</html>
