@@ -49,8 +49,10 @@ def get_all_contacts(request):
 
 @login_required
 def delete_contact(request, contact_id):
-    contact = Contact.objects.get(id=contact_id)
-    contact.delete()
+    try:
+        contact = Contact.objects.get(id=contact_id)
+    except Contact.DoesNotExist:
+        contact = None
     return render(request, 'c_book/contact_delete_confirmation.html')
 
 

@@ -6,13 +6,29 @@
 
 
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
+<head>
+  <style media="screen">
+    .sign-out{
+      width: 100px;
+      background: #cf5a48;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+
+    }
+  </style>
+
+</head>
+
 
 <form method="post" action="{% url 'account_logout' %}">
   {% csrf_token %}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
+  <button class="sign-out" type="submit">{% trans 'Sign Out' %}</button>
 </form>
 
 

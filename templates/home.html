@@ -4,20 +4,79 @@
    <head>
       <meta charset="utf-8">
       <title></title>
+      <style media="screen">
+      .user-style{
+        font-family: "Trebuchet MS", Verdana, sans-serif;
+      }
+      .log-out{
+
+        width: 100px;
+        height: 20px;
+        background: #cf5a48;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+
+      }
+      .add-link{
+        background: #79aec8;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+      }
+
+      .add-link{
+        background: #79aec8;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+      }
+
+      .get-all-link{
+    background: #7d8a07;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+      }
+
+      .search-link{
+        background: #666996;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+      }
+
+
+      </style>
    </head>
    <body>
-      {% if user.is_authenticated %}
-      Hi {{ user.email }}!
-      <p><a href="{% url 'account_logout' %}">Log Out</a></p>
-      <ul>
-         <li><a href="c_book/add">Add contact</a></li>
-         <li><a href="c_book/get_all_contacts">View Contatcs</a></li>
-         <li><a href="c_book/search">Search Contact</a></li>
-      </ul>
-      {% else %}
-      <p>You are not logged in</p>
-      <a href="{% url 'account_login' %}">Log In</a> |
-      <a href="{% url 'account_signup' %}">Sign Up</a>
-      {% endif %}
+
+     <div class="">
+       {% if user.is_authenticated %}
+
+       <p class=user-style><i> Hi {{ user.email }}!</i></p>  <a class="log-out" href="{% url 'account_logout' %}">Log Out</a>
+
+          <a class="add-link" href="c_book/add">Add contact</a>
+          <a class="get-all-link" href="c_book/get_all_contacts">View Contatcs</a>
+          <a class="search-link" href="c_book/search">Search Contact</a>
+
+       {% else %}
+       <p>You are not logged in</p>
+       <a href="{% url 'account_login' %}">Log In</a> |
+       <a href="{% url 'account_signup' %}">Sign Up</a>
+       {% endif %}
+
+     </div>
+
    </body>
 </html>

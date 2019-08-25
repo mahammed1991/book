@@ -12,6 +12,27 @@
          -webkit-appearance: none;
          margin: 0;
          }
+         .home-link{
+           display: block;
+            width: 100px;
+            height: 20px;
+            background: MediumSeaGreen;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white !important;
+            font-weight: bold;
+         }
+
+         .get-all-link{
+         background: #7d8a07;
+         padding: 10px 15px;
+         border: none;
+         border-radius: 4px;
+         color:white !important;
+         font-weight: bold !important;
+         cursor: pointer;
+           }
          .errorlist {
          font-size: 14px;
          font-weight: 700;
@@ -47,11 +68,18 @@
          .success{
          color:blue;
          }
+         .link-div{
+           display: inline;
+         }
       </style>
    </head>
    <body>
-      <a href="/">Home</a><br>
-      <a href="/c_book/get_all_contacts">View Contatcs</a>
+     <div class="link-div">
+       <a class="home-link" href="/">Home</a><br>
+       <a class="get-all-link" href="/c_book/get_all_contacts">View Contatcs</a>
+     </div><br><br>
+
+
       <div class="input-validation">
          <ul>
             <li>Contact Number should be Ten digit</li>

@@ -3,11 +3,53 @@
    <head>
       <meta charset="utf-8">
       <title></title>
+      <style media="screen">
+      .home-link {
+  display: block;
+  width: 100px;
+  height: 20px;
+  background: MediumSeaGreen;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.go-back{
+  display: block;
+  width: 100px;
+  height: 20px;
+  background: #08a10d;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+
+}
+
+.log-out{
+  display: block;
+  width: 100px;
+  height: 20px;
+  background: #cf5a48;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+
+}
+      </style>
    </head>
    <script>
-      document.write('<a href="' + document.referrer + '">Go Back</a>');
+      document.write('<a class="go-back" href="' + document.referrer + '">Go Back</a><br>');
    </script>
    <body>
-      <a href="/">Home</a>
+
+      <a class="home-link" href="/">Home</a><br>
+      <a class="log-out" href="{% url 'account_logout' %}">Log Out</a><br>
+      <p>Successfully Contact Deleted !!</p>
    </body>
 </html>
