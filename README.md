@@ -73,7 +73,7 @@ a simple django form , where we will be adding Name, Phone No and Email
 On click of this tab it will redirect to a page where we can see all list of contacts
 - Under this section we have 
   **a)** Edit action (Editing of any contact) 
-  **b)** Delete Action (Deleting of on confirmation)
+  **b)** Delete Action (Deleting of contact on confirmation)
 - Pagination 
   I have implimeted pagination Based view , contact list will be 
   showing 10 rows per page, you can navigate towards forward and 
@@ -87,4 +87,17 @@ here also if result is more than 10 rows you will get pagination option.
 - Logout (Link) **:**
 On click of this link , User will be asked for confirmation for signout, on clean exist 
 user will be shown again login authentication page. 
+
+- Below Added few Projects Images
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/home.png" width="610">
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/search%20result.png" width="610">
+
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/login.png" width="610">
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/auth.png" width="610">
+
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/search.png" width="610">
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/contact%20list.png" width="610">
+
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/add.png" width="610">
+<img src="https://raw.githubusercontent.com/mahammed1991/book/master/project_images/search%20result.png" width="610">
 
