@@ -1,10 +1,10 @@
 {% load i18n %}
 
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+{% block head_title %}{% trans "" %}{% endblock %}
 
 {% block content %}
 
-
+<a class="home-link" href="/">Home</a><br>
 <p>{% trans 'Are you sure you want to sign out?' %}</p>
 <head>
   <style media="screen">
@@ -18,6 +18,17 @@
       font-weight: bold;
 
     }
+    .home-link{
+      display: block;
+       width: 100px;
+       height: 20px;
+       background: MediumSeaGreen;
+       padding: 10px;
+       text-align: center;
+       border-radius: 5px;
+       color: white !important;
+       font-weight: bold;
+    }
   </style>
 
 </head>
@@ -28,7 +39,10 @@
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
   {% endif %}
-  <button class="sign-out" type="submit">{% trans 'Sign Out' %}</button>
+
+  <button class="sign-out" type="submit">{% trans 'Sign Out' %}</button><br>
+
+
 </form>
 
 
